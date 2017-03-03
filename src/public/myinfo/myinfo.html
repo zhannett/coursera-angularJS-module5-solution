@@ -1,0 +1,41 @@
+<div class="page-content-container">
+{{$ctrl.myinfo.signedUp}}
+    <div id="signedUp" ng-if="(!myinfoCtrl.myinfo.signedUp)">
+        <div class="col-xs-12 col-sm-9 col-sm-offset-2">
+            <h3 class="lightgray">Not signed up yet. <a ui-sref="public.signup">Sign up Now!</a></h3>
+        </div>
+    </div>
+    <div id="notSignedUp" ng-if="(myinfoCtrl.myinfo.signedUp)">
+        <div class="col-xs-12 col-sm-9 col-sm-offset-2">
+            <h2>My Info</h2>
+        </div>
+
+        <div class="row bottom-margin">
+            <div class="col-xs-12 ol-sm-5">
+                <div class="col-xs-4 text-right olive">First Name: </div><div class="col-xs-6 lightgray"> {{myinfoCtrl.myinfo.firstName}}</div>
+                <div class="col-xs-4 text-right olive">Last Name: </div><div class="col-xs-6 lightgray"> {{myinfoCtrl.myinfo.lastName}}</div>
+                <div class="col-xs-4 text-right olive">Email: </div><div class="col-xs-6 lightgray"> {{myinfoCtrl.myinfo.email}}</div>
+                <div class="col-xs-4 text-right olive">Phone: </div><div class="col-xs-6 lightgray"> {{myinfoCtrl.myinfo.phone }}</div>
+                <div class="col-xs-4 text-right olive">Favorite Dish: </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-5">
+                <div class="menu-item-photo">
+                    <div class="ng-binding lightgray">{{myinfoCtrl.dish.short_name}}</div>
+                    <img class="img-responsive" width="250" height="150" ng-src="https://my-restaurant-server.herokuapp.com/images/{{myinfoCtrl.dish.short_name}}.jpg" alt="{{myinfoCtrl.dish.name}}" src="https://my-restaurant-server.herokuapp.com/images/{{myinfoCtrl.dish.short_name}}.jpg" />
+                </div>
+            </div>
+            <div class="col-xs-12  col-sm-7 menu-item-description">
+                <h3 class="menu-item-title ng-binding lightgray">{{myinfoCtrl.dish.name}}</h3>
+                <p class="menu-item-details ng-binding olive">{{myinfoCtrl.dish.description}}</p>
+                <div class="menu-item-price ng-binding lightgray">
+                    <span>{{myinfoCtrl.dish.large_portion_name}}: {{myinfoCtrl.dish.price_large | currency}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>{{myinfoCtrl.dish.small_portion_name}}: {{myinfoCtrl.dish.price_small | currency}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
